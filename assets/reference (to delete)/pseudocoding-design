@@ -1,0 +1,16 @@
+// make HTML / CSS look like pictures in demo
+// connect search button to search function
+    //connect search function to API
+        //store search results in array
+            //create list elements with search results
+                //make list elements with search results clickable
+//fetch current weather data from API on click
+    // get current temperature
+    // get current weather icon 
+    // get current wind speed  
+    // get current humidity 
+    // get current UV index
+        //display data in html
+//fetch 5 day forecast data
+    //display data in html
+
