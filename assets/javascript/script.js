@@ -16,7 +16,13 @@ submitBtn.on("click", function(event) {
 //         console.log(data.results)
 //     });
 localStorage.setItem("cityName", searchTerm.val());
-localStorage.getItem(searchTerm.val());
+// localStorage.getItem(searchTerm.val()); this also pulls it
 console.log(localStorage.getItem("cityName"));
-var cityName = localStorage.getItem("cityName");
 });
+var historyContainer = $("#historyBtnList");
+var cityName = localStorage.getItem("cityName");
+var cityHistory = $(<li><button></button></li>);
+historyContainer.append(cityHistory);
+
+
+
