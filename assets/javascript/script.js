@@ -7,7 +7,7 @@ var submitBtn = $("#submit");
 submitBtn.on("click", function(event) {
     event.preventDefault();
     var newURL = citySearch.split("{city name}").join(searchTerm.val());
-    console.log(newURL);
+    // console.log(newURL);
 // fetch(newURL)
 //     .then(function (response) {
 //         return response.json();
@@ -17,12 +17,16 @@ submitBtn.on("click", function(event) {
 //     });
 localStorage.setItem("cityName", searchTerm.val());
 // localStorage.getItem(searchTerm.val()); this also pulls it
-console.log(localStorage.getItem("cityName"));
-});
-var historyContainer = $("#historyBtnList");
+// console.log(localStorage.getItem("cityName"));
+var historyContainer = $("#historyContainer");
 var cityName = localStorage.getItem("cityName");
-var cityHistory = $(<li><button></button></li>);
-historyContainer.append(cityHistory);
+// const li = $('<li>').appendTo(historyContainer).text(cityName);
+var $listEl = $('<li></li>').text('cityName');
+});
+
+
+
+// const li = $(createElement('<li>')).appendTo(historyContainer).text(cityName);
 
 
 
