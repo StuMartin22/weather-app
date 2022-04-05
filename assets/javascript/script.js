@@ -18,15 +18,14 @@ submitBtn.on("click", function(event) {
 localStorage.setItem("cityName", searchTerm.val());
 // localStorage.getItem(searchTerm.val()); this also pulls it
 // console.log(localStorage.getItem("cityName"));
-var historyContainer = $("#historyContainer");
+var historyContainer = $("#historyBtnList");
 var cityName = localStorage.getItem("cityName");
+console.log(cityName);
+var searchHistory = document.createElement('button')
+historyContainer.append(searchHistory);
+searchHistory.innerHTML(cityName);
 // const li = $('<li>').appendTo(historyContainer).text(cityName);
-var $listEl = $('<li></li>').text('cityName');
+// var itemITookOutOfStorage = $('<li>').text(cityName);
+// var itemITookOutOfStorage = document.createElement('li')
+// itemITookOutOfStorage.textContent = cityName;
 });
-
-
-
-// const li = $(createElement('<li>')).appendTo(historyContainer).text(cityName);
-
-
-
