@@ -57,17 +57,17 @@ fetch (secondUrl)
         currentContainer.append(cT, cW, cH, cU, cI);
 
 
+
         //fiveday data here:
         // var fiveDay = for (var i = 0; i < 6; i++) {
-        // var fiveDayTemp = data.current.temp;
-        // var fiveDayWind = data.current.wind_speed;
-        // var fiveDayHumidity = data.current.humidity;
-        // var fiveDayUvi = data.current.uvi;
-        // var fiveDayIconCode = data.current.weather[0].icon;
-        // var fiveDayIconUrl = "http://openweathermap.org/img/wn/" + currentIconCode + "@2x.png";
+        // var fiveDayTemp = data.daily[i].temp.max;
+        // var fiveDayWind = data.daily.wind_speed;
+        // var fiveDayHumidity = data.daily.humidity;
+        // var fiveDayIconCode = data.daily.[0].weather.[0].icon;
+        // var fiveDayIconUrl = "http://openweathermap.org/img/wn/" + variablefor5dayiconhere + "@2x.png";
         // var fiveDayImageHolder = $("<img>");
 
-        // tempwindhumidityforecast
+
 
     });
 
