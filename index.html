@@ -18,26 +18,26 @@
       <h1>WEATHER APP</h1>
     </div>
 
-    <div class="container main-body">
+    <div class="container main-body align-left">
       <form>
-        <div class="row searchBox">
+        <div class="row searchBox historySize">
           <div class="col">
             <input
               type="text"
-              class="form-control"
+              class="form-control historySize"
               placeholder="Enter City Name Here"
               id="searchTerm"
             />
           </div>
         </div>
       </form>
-      <div class="buttonHolder">
-        <button type="submit" class="btn btn-primary" id="submit">
+      <div class="buttonHolder historySize">
+        <button type="submit" class="btn btn-primary historySize" id="submit">
           Search
         </button>
       </div>
-      <div class="card historyContainer" style="width: 18rem">
-      </div>
+      <div class="card historyContainer historySize">
+    </div>
 
       <div class="container today">
         <div id="currentTemp"></div>
@@ -46,7 +46,13 @@
         <div id="currentUvi"></div>
         <div id="currentIcon"></div>
       </div>
-    </div>
+      <div class="container forecast">
+        <div id="fiveDayOne"></div>
+        <div id="fiveDayTwo"></div>
+        <div id="fiveDayThree"></div>
+        <div id="fiveDayFour"></div>
+        <div id="fiveDayFive"></div>
+      </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

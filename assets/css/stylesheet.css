@@ -1,3 +1,14 @@
 .today {
     border: 1px solid rgb(27, 25, 25)
 }
+.historySize {
+    width:38vh;
+    height: 5vh
+}
+.main-body{
+    margin: 0px
+}
+.header{
+    background-blend-mode: color-dodge;
+    background-color: aqua;
+}
