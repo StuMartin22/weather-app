@@ -2,6 +2,12 @@ var citySearch = "http://api.openweathermap.org/geo/1.0/direct?q={city name}&lim
 var urlData = document.location.search;
 var searchTerm = $("#searchTerm");
 var submitBtn = $("#submit");
+var currentContainer = $(".today")
+var cT = $("#currentTemp");
+var cW = $("#currentWind");
+var cH = $("#currentHumidity");
+var cU = $("#currentUvi");
+var cI = $("#currentIcon");
 
 
 submitBtn.on("click", function(event) {
@@ -36,12 +42,27 @@ fetch (secondUrl)
         var currentWind = data.current.wind_speed;
         var currentHumidity = data.current.humidity;
         var currentUvi = data.current.uvi;
-        var currentIcon = data.current.weather[0].icon;
-        console.log(currentIcon);
-        // console.log(currentTemp, currentWind, currentHumidity, currentUvi);
+        var currentIconCode = data.current.weather[0].icon;
+        var currentIconUrl = "http://openweathermap.org/img/wn/" + currentIconCode + "@2x.png";
+        // console.log(currentIcon);
         // var fiveDay = for (var i = 0; i < 6; i++) {
         //     var day = [data[0].daily[i].temp, data[0].daily[i].wind_speed, data[0].daily[i].humidity]
+    
+        cT.append(currentTemp);
+        cT.text("Temperature: " + currentTemp + " °F");
+        cW.append(currentWind);
+        cW.text("Wind Speed: " + currentWind + " mph");
+        cH.append(currentHumidity);
+        cH.text(" Humidity: " + currentHumidity + " %");
+        cU.append(currentUvi);
+        cU.text("UV Index: " + currentUvi);
+        var currentImageHolder = $("<img>");
+        cI.append(currentImageHolder);
+        currentImageHolder.attr('src', currentIconUrl);
+        currentContainer.append(cT, cW, cH, cU, cI);
     });
+
+
 var savedUserInput = [];
 savedUserInput.push(searchTerm.val());
 searchTerm.text(" ");
