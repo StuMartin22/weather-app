@@ -31,10 +31,17 @@ fetch (secondUrl)
         return response.json();
     })
     .then (function(data) {
-        var current = [data[0].current.temp, data[0].current.wind_speed, data[0].current.humidity, data[0].current.uvi];
-        var fiveDay = for (var i = 0; i < 6; i++) {
-            var day = [data[0].daily[i].temp, data[0].daily[i].wind_speed, data[0].daily[i].humidity]]
-    })
+        // console.log(data)
+        var currentTemp = data.current.temp;
+        var currentWind = data.current.wind_speed;
+        var currentHumidity = data.current.humidity;
+        var currentUvi = data.current.uvi;
+        var currentIcon = data.current.weather[0].icon;
+        console.log(currentIcon);
+        // console.log(currentTemp, currentWind, currentHumidity, currentUvi);
+        // var fiveDay = for (var i = 0; i < 6; i++) {
+        //     var day = [data[0].daily[i].temp, data[0].daily[i].wind_speed, data[0].daily[i].humidity]
+    });
 var savedUserInput = [];
 savedUserInput.push(searchTerm.val());
 searchTerm.text(" ");
