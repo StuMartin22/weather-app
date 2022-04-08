@@ -14,45 +14,47 @@
     <link rel="stylesheet" href="./assets/css/stylesheet.css" />
   </head>
   <body>
-    <div class="container-fluid header">
+    <div class="container-fluid header w-50">
       <h1>WEATHER APP</h1>
     </div>
 
-    <div class="container main-body align-left">
-      <form>
-        <div class="row searchBox historySize">
-          <div class="col">
-            <input
-              type="text"
-              class="form-control historySize"
-              placeholder="Enter City Name Here"
-              id="searchTerm"
-            />
+    <div class="container main-body w-50 align-left">
+      <span class="card historyContainer historySize">
+        <form>
+          <div class="row searchBox historySize align-left">
+            <div class="col">
+              <input
+                type="text"
+                class="form-control historySize align-left"
+                placeholder="Enter City Name Here"
+                id="searchTerm"
+              />
+              <div class="buttonHolder historySize align-left">
+                <button type="submit" class="btn btn-primary historySize" id="submit">
+                  Search
+                </button>
+                <div id="holdmystuff">
+                  <div class="container today align-right col-8 m-0 w-50" id = "currentContainer">
+                    <div id="currentTemp"></div>
+                    <div id="currentWind"></div>
+                    <div id="currentHumidity"></div>
+                    <div id="currentUvi"></div>
+                    <div id="currentIcon"></div>
+                  </div>
+                  <div class="container forecast">
+                    <div id="fiveDayOne"></div>
+                    <div id="fiveDayTwo"></div>
+                    <div id="fiveDayThree"></div>
+                    <div id="fiveDayFour"></div>
+                    <div id="fiveDayFive"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </form>
-      <div class="buttonHolder historySize">
-        <button type="submit" class="btn btn-primary historySize" id="submit">
-          Search
-        </button>
-      </div>
-      <div class="card historyContainer historySize">
+        </form>
+      </span>
     </div>
-
-      <div class="container today">
-        <div id="currentTemp"></div>
-        <div id="currentWind"></div>
-        <div id="currentHumidity"></div>
-        <div id="currentUvi"></div>
-        <div id="currentIcon"></div>
-      </div>
-      <div class="container forecast">
-        <div id="fiveDayOne"></div>
-        <div id="fiveDayTwo"></div>
-        <div id="fiveDayThree"></div>
-        <div id="fiveDayFour"></div>
-        <div id="fiveDayFive"></div>
-      </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
