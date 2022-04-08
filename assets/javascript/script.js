@@ -12,50 +12,10 @@ var cI = $("#currentIcon");
 
 submitBtn.on("click", function(event) {
     event.preventDefault();
-    var newURL = citySearch.split("{city name}").join(searchTerm.val());
-    // console.log(newURL);
-
-var coords 
-
-fetch (newURL)
-    .then (function (response) {
-        return response.json();
-    })
-    .then (function (data) {
-coords = {
-    lat: data[0].lat.toFixed(2),
-    lon: data[0].lon.toFixed(2),
-    };
-
-
-
-var secondUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + coords.lat + "&lon=" + coords.lon + "&exclude=minutely,hourly,alerts&limit=5&units=imperial&appid=7395305ec624eec55c8c9f460f751d9d"
-console.log(secondUrl);
-fetch (secondUrl)
-    .then (function(response) {
-        return response.json();
-    })
-    .then (function(data) {
-        var currentTemp = data.current.temp;
-        var currentWind = data.current.wind_speed;
-        var currentHumidity = data.current.humidity;
-        var currentUvi = data.current.uvi;
-        var currentIconCode = data.current.weather[0].icon;
-        var currentIconUrl = "http://openweathermap.org/img/wn/" + currentIconCode + "@2x.png";
-        var currentImageHolder = $("<img>");
-    
-        cT.append(currentTemp);
-        cT.text("Temperature: " + currentTemp + " °F");
-        cW.append(currentWind);
-        cW.text("Wind Speed: " + currentWind + " mph");
-        cH.append(currentHumidity);
-        cH.text(" Humidity: " + currentHumidity + " %");
-        cU.append(currentUvi);
-        cU.text("UV Index: " + currentUvi);
-        cI.append(currentImageHolder);
-        currentImageHolder.attr('src', currentIconUrl);
-        currentContainer.append(cT, cW, cH, cU, cI);
-
+    clearWeatherIcon();
+    createAUrl();
+    lSRun();
+});
 
 
         //fiveday data here:
@@ -68,10 +28,7 @@ fetch (secondUrl)
         // var fiveDayImageHolder = $("<img>");
 
 
-
-    });
-
-
+function lSRun() {
 var savedUserInput = [];
 savedUserInput.push(searchTerm.val());
 searchTerm.text(" ");
@@ -82,4 +39,50 @@ var searchHistory = $('<button>');
 historyContainer.append(searchHistory);
 JSON.parse(cityName);
 searchHistory.text(savedUserInput);
-})});
+};
+
+function createAUrl() {
+    var newURL = citySearch.split("{city name}").join(searchTerm.val());
+    // console.log(newURL);
+var coords 
+
+fetch (newURL)
+    .then (function (response) {
+        return response.json();
+    })
+    .then (function (data) {
+coords = {
+    lat: data[0].lat.toFixed(2),
+    lon: data[0].lon.toFixed(2),
+    };
+    var secondUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + coords.lat + "&lon=" + coords.lon + "&exclude=minutely,hourly,alerts&limit=5&units=imperial&appid=7395305ec624eec55c8c9f460f751d9d"
+    console.log(secondUrl);
+    fetch (secondUrl)
+        .then (function(response) {
+            return response.json();
+        })
+        .then (function(data) {
+            var currentTemp = data.current.temp;
+            var currentWind = data.current.wind_speed;
+            var currentHumidity = data.current.humidity;
+            var currentUvi = data.current.uvi;
+            var currentIconCode = data.current.weather[0].icon;
+            var currentIconUrl = "http://openweathermap.org/img/wn/" + currentIconCode + "@2x.png";
+            var currentImageHolder = $("<img>");
+            currentImageHolder.val("")
+            cT.append(currentTemp);
+            cT.text("Temperature: " + currentTemp + " °F");
+            cW.append(currentWind);
+            cW.text("Wind Speed: " + currentWind + " mph");
+            cH.append(currentHumidity);
+            cH.text(" Humidity: " + currentHumidity + " %");
+            cU.append(currentUvi);
+            cU.text("UV Index: " + currentUvi);
+            cI.append(currentImageHolder);
+            currentImageHolder.attr('src', currentIconUrl);
+            currentContainer.append(cT, cW, cH, cU, cI);
+        })})};
+
+function clearWeatherIcon(){
+cI.empty();
+};
