@@ -8,4 +8,9 @@
 .main-body{
     margin: 0px
 }
-
+input {
+    margin-bottom: 1vh !important;
+}
+.historyBtn {
+    width: 100vw
+}

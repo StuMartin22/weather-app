@@ -34,8 +34,9 @@ savedUserInput.push(searchTerm.val());
 searchTerm.text(" ");
 localStorage.setItem(savedUserInput, JSON.stringify(savedUserInput));
 var cityName = localStorage.getItem(savedUserInput);
-var historyContainer= $(".historyContainer");
+var historyContainer= $(".buttonHolder");
 var searchHistory = $('<button>');
+searchHistory.addClass("historyBtn col-12")
 historyContainer.append(searchHistory);
 JSON.parse(cityName);
 searchHistory.text(savedUserInput);
