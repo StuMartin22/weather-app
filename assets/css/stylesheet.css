@@ -14,3 +14,8 @@ input {
 .historyBtn {
     width: 100vw
 }
+.buttonHolder{
+    margin-left: 2.4px !important;
+    margin-right: 0px !important;
+    margin-top: 5px !important;
+}

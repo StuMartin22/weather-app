@@ -8,13 +8,16 @@ var cW = $("#currentWind");
 var cH = $("#currentHumidity");
 var cU = $("#currentUvi");
 var cI = $("#currentIcon");
-
+var toClearInput = $('<input>')
+var timeUrl = "https://www.timeapi.io/api/Time/current/coordinate?latitude=38.9&longitude=-77.03"
+var coordsArr = []
 
 submitBtn.on("click", function(event) {
     event.preventDefault();
     clearWeatherIcon();
     createAUrl();
     lSRun();
+    // clearCoordsArr();
 });
 
 
@@ -31,12 +34,13 @@ submitBtn.on("click", function(event) {
 function lSRun() {
 var savedUserInput = [];
 savedUserInput.push(searchTerm.val());
-searchTerm.text(" ");
+searchTerm.text("");
 localStorage.setItem(savedUserInput, JSON.stringify(savedUserInput));
 var cityName = localStorage.getItem(savedUserInput);
 var historyContainer= $(".buttonHolder");
 var searchHistory = $('<button>');
 searchHistory.addClass("historyBtn col-12")
+searchHistory.css({"border-radius": "5px", "margin-top": "2px","text-transform": "capitalize"})
 historyContainer.append(searchHistory);
 JSON.parse(cityName);
 searchHistory.text(savedUserInput);
@@ -56,8 +60,11 @@ coords = {
     lat: data[0].lat.toFixed(2),
     lon: data[0].lon.toFixed(2),
     };
+    coordsArr.push(coords.lat);
+    coordsArr.push(coords.lon);
+    console.log(coordsArr)
     var secondUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + coords.lat + "&lon=" + coords.lon + "&exclude=minutely,hourly,alerts&limit=5&units=imperial&appid=7395305ec624eec55c8c9f460f751d9d"
-    console.log(secondUrl);
+    // console.log(secondUrl);
     fetch (secondUrl)
         .then (function(response) {
             return response.json();
@@ -87,3 +94,7 @@ coords = {
 function clearWeatherIcon(){
 cI.empty();
 };
+
+// function clearCoordsArr(){
+//     coordsArr.empty()
+// };
